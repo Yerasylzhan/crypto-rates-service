@@ -45,6 +45,13 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Compile and run the project via Docker with PostgreSQL
+
+```bash
+# development
+$ docker-compose up --build
+```
+
 ## Run tests
 
 ```bash
