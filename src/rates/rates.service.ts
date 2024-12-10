@@ -45,7 +45,6 @@ export class RatesService {
     if (sort) {
       query.orderBy('rate.timestamp', sort.toUpperCase() as 'ASC' | 'DESC');
     } else {
-      // По умолчанию сортировка по убыванию
       query.orderBy('rate.timestamp', 'DESC');
     }
 
