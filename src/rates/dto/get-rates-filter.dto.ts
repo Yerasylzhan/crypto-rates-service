@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsDateString, IsInt, Min } from 'class-validator';
+import { IsOptional, IsString, IsDateString, IsInt, Min, IsNumber } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class GetRatesFilterDto {
@@ -19,9 +19,14 @@ export class GetRatesFilterDto {
   toDate?: string;
 
   @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  pairId?: number;
+
+  @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(1)
-  @Type(() => Number)
   limit?: number;
 
   @IsOptional()

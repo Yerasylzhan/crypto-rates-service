@@ -19,7 +19,7 @@ export class RatesService {
 
 
   async findWithFilters(filterDto: GetRatesFilterDto) {
-    const { baseCurrency, quoteCurrency, fromDate, toDate, limit, sort } = filterDto;
+    const { baseCurrency, quoteCurrency, fromDate, pairId, toDate, limit, sort } = filterDto;
 
     const query = this.ratesRepository.createQueryBuilder('rate');
 
@@ -32,6 +32,10 @@ export class RatesService {
       } else {
         return [];
       }
+    }
+
+    if (pairId) {
+      query.andWhere('rate.pairId = :pairId', { pairId });
     }
 
     if (fromDate) {
